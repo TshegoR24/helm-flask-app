@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: tshegorakoma/flask-postgres-app
+  pullPolicy: Always
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 5000
+
+ingress:
+  enabled: false
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+env:
+  DB_HOST: "localhost"
+  DB_NAME: "mydb"
+  DB_USER: "myuser"
+  DB_PASSWORD: "mypassword"
